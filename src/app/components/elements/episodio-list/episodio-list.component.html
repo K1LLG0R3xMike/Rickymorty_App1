@@ -1,9 +1,0 @@
-<ion-list>
-  <ion-list-header>
-    <ion-label>{{ titulo }} - {{ subtitulo }}</ion-label>
-  </ion-list-header>
-  <ion-item *ngFor="let episodio of episodios" lines="none">
-    <!-- Se llama al componente de tarjeta para episodios -->
-    <app-episodio-card [episodio]="episodio"></app-episodio-card>
-  </ion-item>
-</ion-list>
