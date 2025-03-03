@@ -1,0 +1,92 @@
+// Estilo general
+ion-content {
+    --background: #1e1e1e;
+    color: white;
+  }
+  
+  // 🔹 Lista de episodios
+  .episode-item {
+    --background: #2a2a2a;
+    --color: white;
+    border-radius: 10px;
+    margin: 8px 0;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 4px 15px rgba(0, 255, 170, 0.4);
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  
+    p {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+  }
+  
+  // 🔹 Tarjeta del episodio seleccionado
+  .ion-card {
+    background: #252525;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 255, 170, 0.3);
+  }
+  
+  .subtitulo {
+    font-size: 1rem;
+    color: #bbb;
+    text-align: center;
+    margin-top: -5px;
+  }
+  
+  // 🔹 Grid de personajes
+  .personaje-col {
+    display: flex;
+    justify-content: center;
+  }
+  
+  // 🔹 Tarjeta de personaje
+  .personaje-card {
+    text-align: center;
+    background: #333;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0px 5px 20px rgba(255, 215, 0, 0.5);
+    }
+  
+    h3 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 8px 0 4px;
+      color: #00ffaa;
+    }
+  
+    p {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+  }
+  
+  // 🔹 Imagen de personaje
+  .personaje-img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #00ffaa;
+  }
+  
+  // 🔹 Spinner de carga
+  ion-spinner {
+    display: block;
+    margin: 20px auto;
+    color: #00ffaa;
+  }
+  

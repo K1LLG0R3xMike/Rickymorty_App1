@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Personajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Refresher y otros elementos de carga -->
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content pullingText="Desliza para actualizar"></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="loading-container" *ngIf="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando personajes...</p>
+  </div>
+
+  <div class="error-container" *ngIf="errorMessage">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Aquí se utiliza el componente personalizado -->
+  <app-personaje-list
+    *ngIf="!loading && !errorMessage"
+    [personajes]="personajes"
+    [titulo]="titulo1"
+    [subtitulo]="subtitulo1">
+  </app-personaje-list>
+
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Cargando más personajes..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
