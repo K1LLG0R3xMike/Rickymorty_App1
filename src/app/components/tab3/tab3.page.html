@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Episodios y Personajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item 
+      *ngFor="let episodio of episodios" 
+      (click)="cargarPersonajes(episodio.id)" 
+      button 
+      class="episode-item"
+    >
+      <ion-label>
+        <h2>{{ episodio.episode }} - {{ episodio.name }}</h2>
+        <p>📅 Fecha: {{ episodio.air_date }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-card *ngIf="episodioSeleccionado">
+    <ion-card-header>
+      <ion-card-title>{{ episodioSeleccionado.episode }} - {{ episodioSeleccionado.name }}</ion-card-title>
+      <p class="subtitulo">Personajes que aparecen en este episodio</p>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col 
+            *ngFor="let personaje of personajes" 
+            size="6" size-md="4" size-lg="3"
+            class="personaje-col"
+          >
+            <ion-card class="personaje-card">
+              <img [src]="personaje.image" [alt]="personaje.name" class="personaje-img"/>
+              <ion-card-content>
+                <h3>{{ personaje.name }}</h3>
+                <p>{{ personaje.species }} - {{ personaje.status }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-spinner *ngIf="cargarPersonajes" name="dots"></ion-spinner>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
